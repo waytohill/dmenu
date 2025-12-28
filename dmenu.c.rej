@@ -1,0 +1,15 @@
+--- dmenu.c
++++ dmenu.c
+@@ -38,6 +43,12 @@ struct item {
+ 	int out;
+ };
+ 
++static struct {
++	pid_t pid;
++	int enable, in[2], out[2];
++	char buf[256];
++} qalc;
++
+ static char text[BUFSIZ] = "";
+ static char *embed;
+ static int bh, mw, mh;
